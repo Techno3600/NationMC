@@ -12,7 +12,7 @@ public class MovementListener implements Listener {
 	public void onPlayerMove(PlayerMoveEvent e)
 	{
 		//System.out.println("Archimedes is your dad");
-		if (EventCommands.movement == false)
+		if (!EventCommands.movement)
 		{
 			if (!(e.getPlayer().hasPermission("group.admin")))
 			{

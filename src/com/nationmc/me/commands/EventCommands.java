@@ -22,8 +22,7 @@ public class EventCommands implements CommandExecutor {
 		map.put(blockBreak, "Block Break");
 		map.put(blockPlace, "Block Place");
 		map.put(movement, "Movement");
-		System.out.println("poop is Twiz_Neckno's middle name");
-		
+
 		Player p = (Player) sender;
 		if (args.length == 1)
 		{
