@@ -1,29 +1,9 @@
 package com.nationmc.me;
 
+import com.nationmc.me.commands.*;
+import com.nationmc.me.listeners.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import com.nationmc.me.commands.Annnounce;
-import com.nationmc.me.commands.Debug;
-import com.nationmc.me.commands.EventCommands;
-import com.nationmc.me.commands.Gamemode;
-import com.nationmc.me.commands.LockdownCommand;
-import com.nationmc.me.commands.QueuePvPCommand;
-import com.nationmc.me.commands.Rank;
-import com.nationmc.me.commands.RawCommand;
-import com.nationmc.me.commands.ServerCommand;
-import com.nationmc.me.commands.StaffChat;
-import com.nationmc.me.commands.StaffChatReply;
-import com.nationmc.me.commands.Updater;
-import com.nationmc.me.commands.WinEffect;
-import com.nationmc.me.listeners.DeathListener;
-import com.nationmc.me.listeners.DisconnectEvent;
-import com.nationmc.me.listeners.InteractListener;
-import com.nationmc.me.listeners.JoinEvent;
-import com.nationmc.me.listeners.MovementListener;
-import com.nationmc.me.listeners.PlayerJoin;
-import com.nationmc.me.listeners.WeatherListener;
-
 
 
 public class Main extends JavaPlugin {
@@ -45,6 +25,8 @@ public class Main extends JavaPlugin {
         getCommand("server").setExecutor(new ServerCommand());
         getCommand("server").setTabCompleter(new ServerCommand());
         getCommand("lockdown").setExecutor(new LockdownCommand(this));
+        getCommand("scorebaord").setExecutor(new ScoreboardMessage());
+        getCommand("motd").setExecutor(new MOTDCommand());
         //getCommand("scoreboard").setExecutor(new ScoreboardMessage());
         Bukkit.getPluginManager().registerEvents(new PlayerJoin(), this);
         Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
@@ -53,6 +35,8 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new InteractListener(), this);
         Bukkit.getPluginManager().registerEvents(new MovementListener(), this);
         Bukkit.getPluginManager().registerEvents(new JoinEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new WorldMove(), this);
+        Bukkit.getPluginManager().registerEvents(new PingEvent(), this);
 		if (Bukkit.getServer().getPluginManager().getPlugin("TitleAPI").isEnabled()) {
 			System.out.println("Detected TitleAPI. Using as Hook.");
 		}

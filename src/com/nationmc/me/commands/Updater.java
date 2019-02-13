@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
 
 import com.nationmc.me.functions.F;
 
+
 public class Updater implements CommandExecutor {
 	private Main main;
 	public Updater(Main main)
@@ -37,10 +38,7 @@ public class Updater implements CommandExecutor {
 				{
 					for (Player p : w.getPlayers())
 					{
-						for (int i = 0; i < 6; i++)
-						{
-							p.playSound(p.getLocation(), Sound.NOTE_PLING, 1F, 1F);
-						}
+						p.playSound(p.getLocation(), Sound.ENDERMAN_DEATH, 1F, 1F);
 						p.sendMessage(F.miniAnnouncement("Updater", ChatColor.GOLD + w.getName() + ChatColor.AQUA + " is restarting for an update. You are getting sent to a main lobby."));
 					}
 				}

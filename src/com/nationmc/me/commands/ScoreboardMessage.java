@@ -9,18 +9,9 @@ import org.bukkit.entity.Player;
 import com.nationmc.me.listeners.PlayerScoreboardManager;
 
 public class ScoreboardMessage implements CommandExecutor {
-	private static String message;
-	public static String getIt() {
-		if (message.isEmpty() || message == null)
-		{
-			return " ";
-		} else
-		{
-			return message;
-		}
-	}
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		String message;
 		StringBuilder sb = new StringBuilder();
 		for(int i = 0; i < args.length; i++)
 		{
@@ -31,7 +22,6 @@ public class ScoreboardMessage implements CommandExecutor {
 		{
 			PlayerScoreboardManager.PlayerScoreboard(p, message);
 		}
-		sender.sendMessage("Set");
 		return false;
 	}
 }
