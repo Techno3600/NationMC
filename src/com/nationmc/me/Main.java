@@ -43,6 +43,7 @@ public class Main extends JavaPlugin {
         getCommand("e").setExecutor(new EventCommands());
         getCommand("raw").setExecutor(new RawCommand());
         getCommand("server").setExecutor(new ServerCommand());
+        getCommand("server").setTabCompleter(new ServerCommand());
         getCommand("lockdown").setExecutor(new LockdownCommand(this));
         //getCommand("scoreboard").setExecutor(new ScoreboardMessage());
         Bukkit.getPluginManager().registerEvents(new PlayerJoin(), this);
