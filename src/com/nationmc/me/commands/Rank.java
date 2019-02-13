@@ -18,21 +18,19 @@ import com.nationmc.me.listeners.PlayerScoreboardManager;
 
 public class Rank implements CommandExecutor, TabCompleter
 {
-	private static List<String> granks;
+	private static List<String> granks = new ArrayList<>();
 	private static Player p;
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
-		List<String> ranks = new ArrayList<>();
-		ranks.add("OWNER");
-		ranks.add("LEADER");
-		ranks.add("DEV");
-		ranks.add("ADMIN");
-		ranks.add("MOD");
-		ranks.add("TMOD");
-		ranks.add("BUILDER");
-		ranks.add("DEFAULT");
-		granks = ranks;
+		granks.add("OWNER");
+		granks.add("LEADER");
+		granks.add("DEV");
+		granks.add("ADMIN");
+		granks.add("MOD");
+		granks.add("TMOD");
+		granks.add("BUILDER");
+		granks.add("DEFAULT");
 		// /setrank <player> <rank> 
 		if (args.length == 2)
 		{
@@ -43,7 +41,7 @@ public class Rank implements CommandExecutor, TabCompleter
 				sender.sendMessage(F.error("Rank Manager", F.getHeaderColor() + args[0] + F.getErrorColor() + " is not a valid player."));
 			}
 			
-			if (ranks.contains(args[1].toUpperCase()))
+			if (granks.contains(args[1].toUpperCase()))
 			{
 
 				sender.sendMessage(F.main("Rank Manager", F.value(p.getName(), "'s rank has been updated to" + F.value(args[1], "."))));
@@ -83,7 +81,7 @@ public class Rank implements CommandExecutor, TabCompleter
 			List<String> tc1 = new ArrayList<>();
 			for (Player p : Bukkit.getOnlinePlayers())
 			{
-				if (p.getName().contains(args[0]))
+				if (p.getName().toLowerCase().startsWith(args[0].toLowerCase()))
 				{
 					tc1.add(p.getName());
 				}
@@ -92,9 +90,23 @@ public class Rank implements CommandExecutor, TabCompleter
 		} else if (args.length == 2)
 		{
 			List<String> tc2 = new ArrayList<>();
+			if (granks.isEmpty() || granks == null)
+			{
+				granks.add("OWNER");
+				granks.add("LEADER");
+				granks.add("DEV");
+				granks.add("ADMIN");
+				granks.add("MOD");
+				granks.add("TMOD");
+				granks.add("BUILDER");
+				granks.add("DEFAULT");
+			}
 			for (String rank : granks)
 			{
-				if (rank.contains(args[1]))
+				if (args[1].isEmpty() || args[1] == null)
+				{
+					return granks;
+				} else if (rank.toLowerCase().startsWith(args[1].toLowerCase()))
 				{
 					tc2.add(rank);
 				}
