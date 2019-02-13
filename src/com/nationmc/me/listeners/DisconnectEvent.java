@@ -1,11 +1,6 @@
 package com.nationmc.me.listeners;
 
 
-import com.sk89q.worldedit.math.BlockVector3;
-import com.sk89q.worldguard.LocalPlayer;
-import com.sk89q.worldguard.WorldGuard;
-import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
-import com.sk89q.worldguard.protection.regions.RegionContainer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,6 +8,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import com.nationmc.me.commands.QueuePvPCommand;
+import com.sk89q.worldguard.bukkit.WGBukkit;
 
 public class DisconnectEvent implements Listener {
 	
@@ -42,8 +38,6 @@ public class DisconnectEvent implements Listener {
 	public void onPlayerMove(PlayerMoveEvent e)
 	{
 		Player p = (Player) e.getPlayer();
-		LocalPlayer wp = WorldGuardPlugin.inst().wrapPlayer(p);
-		RegionContainer region = WorldGuard.getInstance().getPlatform().getRegionContainer();
 		if (QueuePvPCommand.PvPState.equalsIgnoreCase("ACTIVE"))
 		{
 			try {
@@ -51,12 +45,13 @@ public class DisconnectEvent implements Listener {
 				{
 
 
-					if (!(region.get(wp.getWorld()).getApplicableRegions(BlockVector3.at(p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ())).getRegions().contains(region.get(wp.getWorld()).getRegion("pvp"))))
+					if (!(WGBukkit.getRegionManager(p.getWorld()).getApplicableRegions(p.getLocation()).getRegions().contains(WGBukkit.getRegionManager(p.getWorld()).getRegion("pvp"))))
 					{
 						QueuePvPCommand.endpvp(QueuePvPCommand.QueueOne, QueuePvPCommand.QueueTwo, QueuePvPCommand.QueueTwo);
 					}
 				} else if (p == QueuePvPCommand.QueueTwo) {
-					if (!(region.get(wp.getWorld()).getApplicableRegions(BlockVector3.at(p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ())).getRegions().contains(region.get(wp.getWorld()).getRegion("pvp")))) {
+					if (!(WGBukkit.getRegionManager(p.getWorld()).getApplicableRegions(p.getLocation()).getRegions().contains(WGBukkit.getRegionManager(p.getWorld()).getRegion("pvp"))))
+					{
 						QueuePvPCommand.endpvp(QueuePvPCommand.QueueOne, QueuePvPCommand.QueueTwo, QueuePvPCommand.QueueOne);
 					}
 				}
