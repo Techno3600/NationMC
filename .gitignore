@@ -240,4 +240,5 @@ classes/
 out/
 projectkorra.iml
 
-.iml
+*.iml
+NationMC-Git.iml
