@@ -13,11 +13,14 @@ public class InteractListener implements Listener {
 	@EventHandler
 	public void onBlockBreak(BlockBreakEvent e)
 	{
-		if (EventCommands.blockBreak == false)
+		if (!EventCommands.blockBreak)
 		{
 			if (!(e.getPlayer().hasPermission("group.admin") || e.getPlayer().hasPermission("group.builder")))
 			{
-				e.setCancelled(true);
+				if (!e.getPlayer().getGameMode().equals(GameMode.CREATIVE))
+				{
+					e.setCancelled(true);
+				}
 			} else
 			{
 				if (!(e.getPlayer().getGameMode().equals(GameMode.CREATIVE)))
@@ -31,11 +34,14 @@ public class InteractListener implements Listener {
 	@EventHandler
 	public void onBlockPlace(BlockPlaceEvent e)
 	{
-		if (EventCommands.blockPlace == false)
+		if (!EventCommands.blockPlace)
 		{
 			if (!(e.getPlayer().hasPermission("group.admin") || e.getPlayer().hasPermission("group.builder")))
 			{
-				e.setCancelled(true);
+				if (!e.getPlayer().getGameMode().equals(GameMode.CREATIVE))
+				{
+					e.setCancelled(true);
+				}
 			} else
 			{
 				if (!(e.getPlayer().getGameMode().equals(GameMode.CREATIVE)))
