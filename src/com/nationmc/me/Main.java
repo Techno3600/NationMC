@@ -16,7 +16,7 @@ public class Main extends JavaPlugin {
         getCommand("announce").setExecutor(new Annnounce());
         getCommand("sa").setExecutor(new StaffChat());
         getCommand("sar").setExecutor(new StaffChatReply());
-        getCommand("won").setExecutor(new WinEffect());
+        getCommand("won").setExecutor(new WinEffect(this));
         getCommand("pvp").setExecutor(new QueuePvPCommand());
         getCommand("updater").setExecutor(new Updater(this));
         getCommand("debug").setExecutor(new Debug());
@@ -25,8 +25,8 @@ public class Main extends JavaPlugin {
         getCommand("server").setExecutor(new ServerCommand());
         getCommand("server").setTabCompleter(new ServerCommand());
         getCommand("lockdown").setExecutor(new LockdownCommand(this));
-        getCommand("scorebaord").setExecutor(new ScoreboardMessage());
         getCommand("motd").setExecutor(new MOTDCommand());
+        getCommand("discord").setExecutor(new DiscordLinkCommand());
         //getCommand("scoreboard").setExecutor(new ScoreboardMessage());
         Bukkit.getPluginManager().registerEvents(new PlayerJoin(), this);
         Bukkit.getPluginManager().registerEvents(new DeathListener(), this);

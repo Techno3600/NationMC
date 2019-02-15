@@ -29,13 +29,13 @@ public class QueuePvPCommand implements CommandExecutor {
 		Player p = null;
 		//pvp <player> - Queues player for PvP (console command)
 		helmet = new ItemStack(Material.DIAMOND_HELMET);
-		helmet.addEnchantment(Enchantment.DURABILITY, 10);
+		helmet.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
 		chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
-		chestplate.addEnchantment(Enchantment.DURABILITY, 10);
+		chestplate.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
 		leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
-		leggings.addEnchantment(Enchantment.DURABILITY, 10);
+		leggings.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
 		boots = new ItemStack(Material.DIAMOND_BOOTS);
-		boots.addEnchantment(Enchantment.DURABILITY, 10);
+		boots.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
 		
 		
 		if (sender.hasPermission("group.admin"))

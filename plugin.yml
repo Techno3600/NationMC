@@ -11,40 +11,55 @@ commands:
   gm:
     description: Gamemode Command
     permission: group.builder
+    permission-message: Builder+ Command
   announce:
     description: Anounce Command
-    permission: nationmc.op
-  scoreboard:
-    description: Scoreboard Setter
-    permission: nationmc.op
+    permission: group.admin
+    permission-message: Admin+ Command
   sa:
     description: Send message to staff
   sar:
     description: Reply to people who talked in Staff Chat
     permission: group.tmod
+    permission-message: Trial Moderator+ Command
   won:
     description: For win effect in PvP Lobby
     permission: op
+    permission-message: Admin+ Debug Command
   updater:
     description: Update server
     permission: group.admin
+    permission-message: Admin+ Command
   pvp:
     description: Queue PvP
   debug:
     description: debugggg
     permission: op
+    permission-message: Admin+ Debug Command.
   e:
     description: Event Module
     permission: group.admin
+    permission-message: Admin+ Command.
   raw:
     description: Test Chat Colors
     permission: group.admin
+    permission-message: Admin+ Command
   server:
     description: Server teleport command
   lockdown:
     description: Server lockdown command
     permission: group.admin
-    
+    permission-message: Admin+ Command
+  scorebaord:
+    description: Scoreboard Message command
+    permission: group.admin
+    permission-message: Admin+ Command
+  motd:
+    description: Set MOTD
+    permission: group.admin
+    permission-message: Admin+ Command
+  discord:
+    description: Get discord link
 
 permissions:
   nationmc.op:

@@ -1,6 +1,7 @@
 package com.nationmc.me.listeners;
 
 
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -58,6 +59,11 @@ public class DisconnectEvent implements Listener {
 			} catch (NullPointerException n)
 			{
 			}
+		}
+		if (WGBukkit.getRegionManager(p.getWorld()).getApplicableRegions(p.getLocation()).getRegions().contains(WGBukkit.getRegionManager(p.getWorld()).getRegion("bottom")))
+		{
+			Location sp = p.getWorld().getSpawnLocation();
+			p.teleport(new Location(p.getWorld(), sp.getX(), sp.getY(), sp.getZ()));
 		}
 	}
 }

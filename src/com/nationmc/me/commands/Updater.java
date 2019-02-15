@@ -38,7 +38,7 @@ public class Updater implements CommandExecutor {
 				{
 					for (Player p : w.getPlayers())
 					{
-						p.playSound(p.getLocation(), Sound.ENDERMAN_DEATH, 1F, 1F);
+						p.getWorld().playSound(p.getLocation(), Sound.ENDERDRAGON_DEATH, 2F, 1F);
 						p.sendMessage(F.miniAnnouncement("Updater", ChatColor.GOLD + w.getName() + ChatColor.AQUA + " is restarting for an update. You are getting sent to a main lobby."));
 					}
 				}

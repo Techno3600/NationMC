@@ -1,4 +1,4 @@
-package com.nationmc.me.commands;
+/*package com.nationmc.me.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -24,4 +24,4 @@ public class ScoreboardMessage implements CommandExecutor {
 		}
 		return false;
 	}
-}
+}*/
