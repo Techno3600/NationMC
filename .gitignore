@@ -242,3 +242,5 @@ projectkorra.iml
 
 *.iml
 NationMC-Git.iml
+.DS_Store
+src/.DS_Store
