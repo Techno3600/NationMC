@@ -15,11 +15,19 @@ public class MovementListener implements Listener {
 
 	@EventHandler
 	public void onPlayerMove(PlayerMoveEvent e) {
-		if (!EventCommands.movement) {
+
+
+
+		if (!EventCommands.flags.get(e.getPlayer().getWorld()).get(2)) {
 			if (!(e.getPlayer().hasPermission("group.admin"))) {
 				e.setCancelled(true);
 			}
 		}
+
+
+
+
+
 		Player p = e.getPlayer();
 		if (QueuePvPCommand.PvPState.equalsIgnoreCase("ACTIVE")) {
 			try {
@@ -38,8 +46,11 @@ public class MovementListener implements Listener {
 		if (p.getLocation().getY() < -19) {
 			if (!(p.getGameMode().equals(GameMode.CREATIVE)))
 			{
-				Location sp = p.getWorld().getSpawnLocation();
-				p.teleport(new Location(p.getWorld(), sp.getX(), sp.getY(), sp.getZ()));
+				if (e.getPlayer().getWorld().getName().equalsIgnoreCase("NationMC"))
+				{
+					Location sp = p.getWorld().getSpawnLocation();
+					p.teleport(new Location(p.getWorld(), sp.getX(), sp.getY(), sp.getZ()));
+				}
 			}
 		}
 	}

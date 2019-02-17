@@ -13,7 +13,7 @@ public class JoinEvent implements Listener {
 	@EventHandler
 	public void onPlayerJoin(PlayerLoginEvent e)
 	{
-		if (LockdownCommand.lockdown == true)
+		if (LockdownCommand.lockdown)
 		{
 			e.setKickMessage(ChatColor.RED + "Kicked whilist joining NationMC \n" + ChatColor.WHITE + "Server lockdown is in effect.");
 		}

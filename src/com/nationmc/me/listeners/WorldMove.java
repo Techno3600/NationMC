@@ -1,6 +1,6 @@
 package com.nationmc.me.listeners;
 
-import org.bukkit.entity.Player;
+import com.nationmc.me.functions.PlayerScoreboardManager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;

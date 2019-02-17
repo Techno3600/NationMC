@@ -19,7 +19,7 @@ public class MOTDCommand implements CommandExecutor {
                 {
                     sb.append(args[i]);
                 }
-                customMOTD = ChatColor.translateAlternateColorCodes('&', sb.toString().trim());
+                customMOTD = ChatColor.translateAlternateColorCodes('&', sb.toString());
                 sender.sendMessage(F.main("Server Settings", "Set custom MOTD to: " + customMOTD + F.getBodyColor() + "."));
             } else
             {
