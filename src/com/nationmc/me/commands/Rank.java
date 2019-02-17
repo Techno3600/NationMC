@@ -14,7 +14,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
-import com.nationmc.me.listeners.PlayerScoreboardManager;
+import com.nationmc.me.functions.PlayerScoreboardManager;
 
 public class Rank implements CommandExecutor, TabCompleter
 {

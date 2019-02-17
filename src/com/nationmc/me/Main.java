@@ -3,7 +3,10 @@ package com.nationmc.me;
 import com.nationmc.me.commands.*;
 import com.nationmc.me.listeners.*;
 import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Arrays;
 
 
 public class Main extends JavaPlugin {
@@ -19,12 +22,11 @@ public class Main extends JavaPlugin {
         getCommand("won").setExecutor(new WinEffect(this));
         getCommand("pvp").setExecutor(new QueuePvPCommand());
         getCommand("updater").setExecutor(new Updater(this));
-        getCommand("debug").setExecutor(new Debug());
         getCommand("e").setExecutor(new EventCommands());
         getCommand("raw").setExecutor(new RawCommand());
         getCommand("server").setExecutor(new ServerCommand());
         getCommand("server").setTabCompleter(new ServerCommand());
-        getCommand("lockdown").setExecutor(new LockdownCommand(this));
+        getCommand("lock").setExecutor(new LockdownCommand(this));
         getCommand("motd").setExecutor(new MOTDCommand());
         getCommand("discord").setExecutor(new DiscordLinkCommand());
         //getCommand("scoreboard").setExecutor(new ScoreboardMessage());
@@ -47,10 +49,17 @@ public class Main extends JavaPlugin {
 			System.out.println("Detected WorldEdit. Using as Hook.");
 		}
 		QueuePvPCommand.PvPState = "IDLE";
-		EventCommands.blockBreak = false;
-		EventCommands.blockPlace = false;
-		EventCommands.movement = true;
 		LockdownCommand.lockdown = false;
+		for (World w : Bukkit.getWorlds())
+        {
+            if (w.getName().equalsIgnoreCase("NationMC"))
+            {
+                EventCommands.flags.put(w, Arrays.asList(false, false, true));
+            } else
+            {
+                EventCommands.flags.put(w, Arrays.asList(true, true, true));
+            }
+        }
     }
     @Override
     public void onDisable() {

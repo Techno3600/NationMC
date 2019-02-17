@@ -32,10 +32,6 @@ commands:
     permission-message: Admin+ Command
   pvp:
     description: Queue PvP
-  debug:
-    description: debugggg
-    permission: op
-    permission-message: Admin+ Debug Command.
   e:
     description: Event Module
     permission: group.admin
@@ -46,7 +42,7 @@ commands:
     permission-message: Admin+ Command
   server:
     description: Server teleport command
-  lockdown:
+  lock:
     description: Server lockdown command
     permission: group.admin
     permission-message: Admin+ Command
@@ -67,22 +63,22 @@ permissions:
     default: op
   nation.*:
     description: Nation MC Node
-    default: not op
+    default: notop
     children:
       nation.owner:
-        default: not op
+        default: notop
       nation.leader:
-        default: not op
+        default: notop
       nation.dev:
-        default: not op
+        default: notop
       nation.admin:
-        default: not op
+        default: notop
       nation.mod:
-        default: not op
+        default: notop
       nation.tmod:
-        default: not op
+        default: notop
       nation.builder:
-        default: not op
+        default: notop
       nation.default:
-        default: not op
+        default: notop
       

@@ -7,9 +7,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
-import com.nationmc.me.listeners.PlayerScoreboardManager;
-
-
 
 public class F {
 	public static String getdividerWithSpace()

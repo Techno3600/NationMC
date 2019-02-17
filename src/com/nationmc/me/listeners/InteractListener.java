@@ -13,7 +13,7 @@ public class InteractListener implements Listener {
 	@EventHandler
 	public void onBlockBreak(BlockBreakEvent e)
 	{
-		if (!EventCommands.blockBreak)
+		if (!EventCommands.flags.get(e.getPlayer().getWorld()).get(1))
 		{
 			if (!(e.getPlayer().hasPermission("group.admin") || e.getPlayer().hasPermission("group.builder")))
 			{
@@ -34,7 +34,7 @@ public class InteractListener implements Listener {
 	@EventHandler
 	public void onBlockPlace(BlockPlaceEvent e)
 	{
-		if (!EventCommands.blockPlace)
+		if (!EventCommands.flags.get(e.getPlayer().getWorld()).get(0))
 		{
 			if (!(e.getPlayer().hasPermission("group.admin") || e.getPlayer().hasPermission("group.builder")))
 			{

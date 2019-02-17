@@ -1,4 +1,4 @@
-package com.nationmc.me.listeners;
+package com.nationmc.me.functions;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
