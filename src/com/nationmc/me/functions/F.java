@@ -5,6 +5,7 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 
 
@@ -111,6 +112,13 @@ public class F {
 	public static void pingAll()
 	{
 		for(Player p : Bukkit.getOnlinePlayers())
+		{
+			p.playSound(p.getLocation(), Sound.NOTE_PLING, 2F, 1F);
+		}
+	}
+	public static void pingWorld(World w)
+	{
+		for (Player p : w.getPlayers())
 		{
 			p.playSound(p.getLocation(), Sound.NOTE_PLING, 2F, 1F);
 		}

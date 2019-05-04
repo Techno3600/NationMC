@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import com.connorlinfoot.titleapi.TitleAPI;
 import com.nationmc.me.Main;
 import com.nationmc.me.functions.F;
+import org.bukkit.event.EventHandler;
 
 public class LockdownCommand implements CommandExecutor {
 	private Main main;
@@ -41,6 +42,7 @@ public class LockdownCommand implements CommandExecutor {
 				TitleAPI.sendTitle(p, 20, 100, 40, ChatColor.GOLD + "Announcement", ChatColor.translateAlternateColorCodes('&', "&c&lSERVER LOCKDOWN HAS BEEN INITIATED"));
 				p.playSound(p.getLocation(), Sound.ENDERDRAGON_GROWL, 2F, 1F);
 			}
+
 			Bukkit.getScheduler().runTaskLater(main, new Runnable() {
 
 				@Override
@@ -59,11 +61,10 @@ public class LockdownCommand implements CommandExecutor {
 					
 				}
 				
-			}, 40L);
+			}, 80L);
 		}
 		return false;
 	}
-	
 	
 
 }

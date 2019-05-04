@@ -25,7 +25,7 @@ public class Gamemode implements CommandExecutor
 				p.sendMessage(ChatColor.BLUE + "Gamemode> " + ChatColor.GRAY + "Your gamemode has been updated to: " + ChatColor.YELLOW + "Creative" + ChatColor.GRAY + ".");
 			} else if (p.getGameMode().equals(GameMode.CREATIVE))
 			{
-				p.setGameMode(GameMode.SURVIVAL);
+				p.setGameMode(GameMode.ADVENTURE);
 				p.sendMessage(ChatColor.BLUE + "Gamemode> " + ChatColor.GRAY + "Your gamemode has been updated to: " + ChatColor.YELLOW + "Survival" + ChatColor.GRAY + ".");
 			} else
 			{
@@ -48,7 +48,7 @@ public class Gamemode implements CommandExecutor
 					p.sendMessage(ChatColor.BLUE + "Gamemode> " + ChatColor.GRAY + "Your gamemode has been updated to: " + ChatColor.YELLOW + "Creative" + ChatColor.GRAY + ".");
 				} else if (p.getGameMode().equals(GameMode.CREATIVE))
 				{
-					p.setGameMode(GameMode.SURVIVAL);
+					p.setGameMode(GameMode.ADVENTURE);
 					sender.sendMessage(ChatColor.BLUE + "Gamemode> " + ChatColor.YELLOW + p.getName() + ChatColor.GRAY + "'s gamemode has been updated to: " + ChatColor.YELLOW + "Survival" + ChatColor.GRAY + ".");
 					p.sendMessage(ChatColor.BLUE + "Gamemode> " + ChatColor.GRAY + "Your gamemode has been updated to: " + ChatColor.YELLOW + "Survival" + ChatColor.GRAY + ".");
 				} else

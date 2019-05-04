@@ -21,7 +21,7 @@ public class Updater implements CommandExecutor {
 		this.main = main;
 	}
 	
-	
+
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		//0 seconds in
@@ -32,6 +32,7 @@ public class Updater implements CommandExecutor {
 		{
 			System.out.println("Initiating network restart.");
 		}
+		String worldName = Main.mainWorld.getName();
 		Bukkit.getScheduler().runTaskLater(main, new Runnable() {
 			public void run() {
 				for (World w : Bukkit.getWorlds())
@@ -52,9 +53,9 @@ public class Updater implements CommandExecutor {
 				{
 					for (Player p : w.getPlayers())
 					{
-						if (!(p.getWorld().equals(Bukkit.getWorld("NationMC"))))
+						if (!(p.getWorld().equals(Bukkit.getWorld(worldName))))
 						{
-							p.teleport(new Location(Bukkit.getWorld("NationMC"), Bukkit.getWorld("NationMC").getSpawnLocation().getX(), Bukkit.getWorld("NationMC").getSpawnLocation().getY(), Bukkit.getWorld("NationMC").getSpawnLocation().getZ()));
+							p.teleport(new Location(Bukkit.getWorld(worldName), Bukkit.getWorld(worldName).getSpawnLocation().getX(), Bukkit.getWorld(worldName).getSpawnLocation().getY(), Bukkit.getWorld(worldName).getSpawnLocation().getZ()));
 							Bukkit.broadcastMessage(ChatColor.RED + "The server you were previously on went down. You have been connected to a default or fallback server.");
 						}
 					}
@@ -80,7 +81,7 @@ public class Updater implements CommandExecutor {
 			
 		}, 220L);
 		//11 seconds in
-		
+
 		Bukkit.getScheduler().runTaskLater(main, new Runnable() {
 			public void run() {
 				Bukkit.shutdown();

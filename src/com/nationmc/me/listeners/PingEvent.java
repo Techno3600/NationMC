@@ -1,5 +1,6 @@
 package com.nationmc.me.listeners;
 
+import com.nationmc.me.commands.LockdownCommand;
 import com.nationmc.me.commands.MOTDCommand;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
@@ -15,9 +16,13 @@ public class PingEvent implements Listener {
         {
             e.setMotd(MOTDCommand.customMOTD);
         }
+        if (LockdownCommand.lockdown)
+        {
+            e.setMotd(ChatColor.RED + "" + ChatColor.BOLD + "Server lockdown is in effect. \n Please check discord for more information.");
+        }
     }
 
-    /* Oh my f**cking god I just spent 40 minutes doing this and find out I could just use ChatColor I quit.
+    /*
     private String translate(String s)
     {
         s.replace("&4", "\u00A74");
