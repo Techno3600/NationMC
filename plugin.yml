@@ -3,7 +3,7 @@ name: NationMC
 main: com.nationmc.me.Main
 author: Wiz_Techno
 description: Core commands for NationMC
-depend: [TitleAPI, WorldGuard, WorldEdit]
+depend: [TitleAPI, WorldGuard, WorldEdit, LuckPerms]
 commands:
   setrank:
     description: Rank Setter
@@ -22,20 +22,10 @@ commands:
     description: Reply to people who talked in Staff Chat
     permission: group.tmod
     permission-message: Trial Moderator+ Command
-  won:
-    description: For win effect in PvP Lobby
-    permission: op
-    permission-message: Admin+ Debug Command
   updater:
     description: Update server
     permission: group.admin
     permission-message: Admin+ Command
-  pvp:
-    description: Queue PvP
-  e:
-    description: Event Module
-    permission: group.admin
-    permission-message: Admin+ Command.
   raw:
     description: Test Chat Colors
     permission: group.admin
@@ -46,7 +36,7 @@ commands:
     description: Server lockdown command
     permission: group.admin
     permission-message: Admin+ Command
-  scorebaord:
+  scoreboard:
     description: Scoreboard Message command
     permission: group.admin
     permission-message: Admin+ Command
@@ -56,6 +46,20 @@ commands:
     permission-message: Admin+ Command
   discord:
     description: Get discord link
+  news:
+    description: News Command
+    permission: group.admin
+    permission-message: Admin+ Command
+  worldtp:
+    description: Teleport to different worlds.
+    aliases: wtp
+    permission: group.admin
+    permission-message: Admin+ Command
+  miniannounce:
+    description: Send a mini-announcement.
+    aliases: ma
+    permission: group.admin
+    permission-message: Admin+ Command
 
 permissions:
   nationmc.op:
@@ -81,4 +85,3 @@ permissions:
         default: notop
       nation.default:
         default: notop
-      

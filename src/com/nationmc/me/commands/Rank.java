@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.nationmc.me.functions.F;
+import me.lucko.luckperms.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
